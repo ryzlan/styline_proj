@@ -9,6 +9,8 @@ function App() {
       {/* <Navigation></Navigation> */}
       <Switch>
         <Route exact path='/' component={Login} /> 
+        <Route path='/commits' component={} />
+
       </Switch>
     </div>
     </BrowserRouter>
@@ -17,21 +19,23 @@ function App() {
 
 function Login(){
   let client_id='dec3fba300a20cb5e1e1'
-
-  const handleReq= () =>{
-    let url = `https://github.com/login/oauth/authorize?client_id=${client_id}`
-    fetch(url)
-      .then(data =>{
-        console.log(data);
+  //href={`https://github.com/login/oauth/authorize?client_id=${client_id}`}
+  // const handleReq= () =>{
+  //   fetch('/github/login' , { credentials: 'same-origin' })
+  //   .then(res=>{
+  //     console.log(res);
       
-      })
-  }
+  //   })
+
+  // }
   return(
     <div className="App">
-      <button onClick={handleReq}>Sign In with Github </button>
+      <a href={`https://github.com/login/oauth/authorize?client_id=${client_id}`} >Sign In with Github </a>
     </div>
   )
 }
+
+
 
 
 export default App;
